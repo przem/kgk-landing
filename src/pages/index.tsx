@@ -4,22 +4,24 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import MainSlider from "../components/MainSlider";
+import AboutUs from "../components/AboutUs";
+import Services from "../components/Services";
+import Team from "../components/Team";
+import Testimony from "../components/Testimony";
+import LastBlogEntries from "../components/LastBlogEntries";
+import ContactUs from "../components/ContactUs";
 
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    <div>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-    </div>
+    <MainSlider/>
+    <AboutUs/>
+    <Services/>
+    <Team/>
+    <Testimony/>
+    <LastBlogEntries/>
+    <ContactUs/>
   </Layout>
 )
 

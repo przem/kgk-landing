@@ -10,7 +10,11 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+
+import "@fontsource/montserrat/500.css"
+import "@fontsource/montserrat/700.css"
+import "@fontsource/amiri"
+
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const data = useStaticQuery(graphql`

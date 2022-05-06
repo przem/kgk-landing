@@ -1,11 +1,91 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import { Fragment } from 'react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import {BellIcon, MenuIcon, PhoneIcon, XIcon} from '@heroicons/react/outline'
+import {StaticImage} from "gatsby-plugin-image";
+import {PlusSmIcon} from "@heroicons/react/solid";
+
+import './header.scss';
 
 const Header = ({ siteTitle }: HeaderProps) => (
-  <header>
-    <Link to="/">{siteTitle}</Link>
-  </header>
+    <Disclosure as="nav" className="bg-white shadow">
+        {({ open }) => (
+            <>
+                <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                    <div className="relative flex justify-between h-16">
+                        <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                            {/* Mobile menu button */}
+                            <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                <span className="sr-only">Otwórz menu</span>
+                                {open ? (
+                                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                                ) : (
+                                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                                )}
+                            </Disclosure.Button>
+                        </div>
+                        <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
+                            <div className="flex-shrink-0 flex items-center">
+                                <StaticImage
+                                    src="../images/logo_full.svg"
+                                    loading="eager"
+                                    formats={["auto", "webp", "avif"]}
+                                    placeholder="tracedSVG"
+                                    alt="Logo"
+                                    className="block lg:hidden h-8 w-48"
+                                />
+                                <StaticImage
+                                    src="../images/logo_full.svg"
+                                    loading="eager"
+                                    formats={["auto", "webp", "avif"]}
+                                    placeholder="tracedSVG"
+                                    alt="Logo"
+                                    className="hidden lg:block h-8 w-64"
+                                />
+                            </div>
+                            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                                {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                                <Link to='o-kancelarii' className="navbar-link" >O Kancelarii</Link>
+                                <Link to='uslugi' className="navbar-link" >Usługi</Link>
+                                <Link to='zespol' className="navbar-link" >Zespół</Link>
+                                <Link to='rodo'  className="navbar-link" >RODO</Link>
+                                <Link to='blog' className="navbar-link" >Blog</Link>
+                                <Link to='kariera' className="navbar-link" >Kariera</Link>
+                                <Link to='kontakt' className="navbar-link" >Kontakt</Link>
+                            </div>
+                        </div>
+                        <div className="flex items-center md:ml-4 ">
+                            <div className="flex-shrink-0 hidden lg:block">
+                                <Link to='prawnik-online'>
+                                    <button type="button" className="navbar-quick-action" > Prawnik On-line </button>
+                                </Link>
+                            </div>
+                            <div className="flex-shrink-0 block lg:hidden">
+                                <Link to='tel://609610013'>
+                                    <button type="button" className="navbar-quick-action" > <PhoneIcon className="w-4 h-4"/> </button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <Disclosure.Panel className="sm:hidden">
+                    <div className="pt-2 pb-4 pl-2 flex space-y-3 flex-col">
+                        {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+                        <Link to='o-kancelarii' className="navbar-link" >O Kancelarii</Link>
+                        <Link to='uslugi' className="navbar-link" >Usługi</Link>
+                        <Link to='zespol' className="navbar-link" >Zespół</Link>
+                        <Link to='rodo'  className="navbar-link" >RODO</Link>
+                        <Link to='blog' className="navbar-link" >Blog</Link>
+                        <Link to='kariera' className="navbar-link" >Kariera</Link>
+                        <Link to='kontakt' className="navbar-link" >Kontakt</Link>
+                    </div>
+                </Disclosure.Panel>
+            </>
+        )}
+    </Disclosure>
 )
 
 type HeaderProps = {
