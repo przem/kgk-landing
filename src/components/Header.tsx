@@ -10,7 +10,7 @@ import {PlusSmIcon} from "@heroicons/react/solid";
 import './header.scss';
 
 const Header = ({ siteTitle }: HeaderProps) => (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure as="nav" className="bg-white shadow fixed z-50 w-full">
         {({ open }) => (
             <>
                 <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -63,9 +63,9 @@ const Header = ({ siteTitle }: HeaderProps) => (
                                 </Link>
                             </div>
                             <div className="flex-shrink-0 block lg:hidden">
-                                <Link to='tel://609610013'>
+                                <a href='tel://609610013'>
                                     <button type="button" className="navbar-quick-action" > <PhoneIcon className="w-4 h-4"/> </button>
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -9,11 +9,13 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import Header from "./Header"
 
+import "@fontsource/montserrat/400.css"
 import "@fontsource/montserrat/500.css"
-import "@fontsource/montserrat/700.css"
-import "@fontsource/amiri"
+import "@fontsource/montserrat/800.css"
+import "@fontsource/amiri/400.css"
+import Footer from "./Footer";
 
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -31,7 +33,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <main>{children}</main>
-      <footer> © {new Date().getFullYear()} </footer>
+      <Footer/>
     </>
   )
 }
