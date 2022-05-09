@@ -4,9 +4,10 @@ import { Link } from "gatsby"
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {BellIcon, MenuIcon, PhoneIcon, XIcon} from '@heroicons/react/outline'
-import {StaticImage} from "gatsby-plugin-image";
-import {PlusSmIcon} from "@heroicons/react/solid";
 
+
+// @ts-ignore
+import LogoFull from '../images/logo_full.svg';
 import './header.scss';
 
 const Header = ({ siteTitle }: HeaderProps) => (
@@ -28,22 +29,7 @@ const Header = ({ siteTitle }: HeaderProps) => (
                         </div>
                         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
                             <div className="flex-shrink-0 flex items-center">
-                                <StaticImage
-                                    src="../images/logo_full.svg"
-                                    loading="eager"
-                                    formats={["auto", "webp", "avif"]}
-                                    placeholder="tracedSVG"
-                                    alt="Logo"
-                                    className="block lg:hidden h-8 w-48"
-                                />
-                                <StaticImage
-                                    src="../images/logo_full.svg"
-                                    loading="eager"
-                                    formats={["auto", "webp", "avif"]}
-                                    placeholder="tracedSVG"
-                                    alt="Logo"
-                                    className="hidden lg:block h-8 w-64"
-                                />
+                                <img src={LogoFull} className="h-8 w-48"/>
                             </div>
                             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                                 {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
