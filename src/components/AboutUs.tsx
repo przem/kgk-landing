@@ -7,7 +7,7 @@ export default function AboutUs() {
             <h3 className="text-3xl text-bold">Dlaczego właśnie my</h3>
 
             <div className="space-y-8">
-                <p className="font-serif p-8 tracking-wide leading-relaxed m-8 bg-kgk-green text-2xl text-white">
+                <p className="font-serif p-8 tracking-wide leading-relaxed mx-1 my-8 md:m-8 bg-kgk-green text-2xl text-white">
                     Dobrzy prawnicy biznesowi znają prawo i jego zastosowanie.
                     Świetni prawnicy biznesowi też to wiedzą, ale wiedzą coś jeszcze, co jest równie ważne.
                     Wiedzą, jak zrozumieć cele klienta i jak stworzyć strategię, której jedynym celem jest skuteczne ich osiągnięcie.

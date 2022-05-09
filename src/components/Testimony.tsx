@@ -28,7 +28,7 @@ export default function Testimony() {
                 <h2 className="text-lg text-kgk-gold uppercase py-4">Referencje</h2>
                 <h3 className="text-3xl text-bold">Co o nas mówią Klienci</h3>
 
-                <div className="grid gap-4 grid-cols-2 md:grid-cols-4 my-16">
+                <div className="grid gap-4 grid-cols-1 md:grid-cols-4 my-16">
                     {data.slice(0, showTestimoniesCount).map((value, key) => <Testimon key={key} text={value.text} author={value.author}/>)}
                     { showTestimoniesCount < data.length &&
                         <div className="w-full flex items-center justify-center flex-col cursor-pointer " onClick={() => setShowTestimoniesCount(showTestimoniesCount + 4)}>
