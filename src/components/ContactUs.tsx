@@ -3,14 +3,6 @@ import React, {ReactElement, ReactNode, useEffect, useRef} from "react";
 import {StaticImage} from "gatsby-plugin-image";
 import {Link} from "gatsby";
 
-import {Status, Wrapper} from "@googlemaps/react-wrapper";
-
-const render = (status: Status): ReactElement => {
-    if (status === Status.LOADING) return <h3>{status} ..</h3>;
-    if (status === Status.FAILURE) return <h3>{status} ...</h3>;
-    return <></>;
-};
-
 export default function ContactUs() {
 
     return (
