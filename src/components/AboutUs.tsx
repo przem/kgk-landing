@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AboutUs() {
     return (
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-16">
+        <div id="o-kancelarii" className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-16">
             <h2 className="text-lg text-kgk-gold uppercase py-4">Czym się zajmujemy</h2>
             <h3 className="text-3xl text-bold">Dlaczego właśnie my</h3>
 

@@ -1,36 +1,40 @@
 import React, {useState} from "react";
 import {ArrowCircleRightIcon} from "@heroicons/react/solid";
+import {graphql, useStaticQuery} from "gatsby";
 
 export default function Testimony() {
 
     const [showTestimoniesCount, setShowTestimoniesCount] = useState(3);
 
-    const data = [
-        { author: 'FHU Polimer', text: 'Usługi świadczone przez Kancelarię charakteryzuje bardzo profesjonalne podejście do realizowanych zadań'},
-        { author: 'Vproject sp. z o.o.', text: 'Przez kilka lat Pani Mecenas Katarzyna Gumula-Kubicka dała się poznać jako zaangażowany i elastyczny współpracownik'},
-        { author: 'Dyrektor finansowy W.K.', text: 'Współpracuję z Mecenas Gumulą-Kubicką m.in. w zakresie optymalizacji prawno-podatkowej firmy oraz opiniowania i sporządzania umów i kontraktów. Praca świadczona przez Panią Adwokat spełnia wszystkie moje wymagania i oczekiwania.'},
-        { author: 'Elżbieta Nowak', text: 'Profesjonalizm,wiedza i ogromne zaangażowanie z jakim spotkałam się w tej kancelarii adwokackiej to rzadkość .Pani Mecenas Katarzyna Gumula-Kubicka polecam '},
-        { author: 'Magdalena Zawadzka', text: 'Polecam niezawodna, profesjonalna, doświadczona i punktualna;-)'},
-        { author: 'Drogi i Ulice', text: 'Usługi Mecenas Gumuli-Kubickiej polecam przede wszystkim przedsiębiorcom chcącym zabezpieczyć swoje interesy'},
-        { author: 'Elżbieta', text: 'Adw. Katarzyna Gumula-Kubicka przygotowywała dokumenty dla mojej spółki oraz umowy o współpracy. Pełen profesjonalizm i idealne wyważenie interesów obu stron umowy. Rekomenduję współpracę z Kancelarią Adwokacką Katarzyna Gumula-Kubicka'},
-        { author: 'Maja Drexler', text: 'Mec. Gumula-Kubicka jest prawdziwym ekspertem, osobą bardzo wiarygodną i zaangażowaną we wszystko co wykonuje. Prawdziwie oddana swojej pracy i osobom z jakimi współpracuje.'},
-        { author: 'Roman Gavlo', text: 'Jestem bardzo zadowolony z korzystania usług danej kancelarii. Pani adw. Katarzyna Gumula Kubicka profesjonalnie podchodzi do każdej sprawy. Chciałbym podziękować za współpracę w przygotowaniu umowy dystrybutorskiej, Pani adwokat przygotowała najlepszą umowę z możliwych.'},
-        { author: 'J.H.', text: 'Szybkość działania i ogromne zaangażowanie. Dziękuję'},
-        { author: 'E.N.', text: 'Profesjonalizm, wiedza i ogromne zaangażowanie z jakim spotkałam się w tej kancelarii adwokackiej to rzadkość. Pani Mecenas Katarzyna Gumula-Kubicka polecam'},
-        { author: 'Elżbieta', text: 'Adw. Katarzyna Gumula-Kubicka przygotowywała dokumenty rejestracyjne i umowy dla mojej spółki. Pełen profesjonalizm i idealne wyważenie interesów.'},
-        { author: 'Agnieszka Czykieta', text: 'Obsługa prawna, świadczona przez Kancelarię, jest zawsze na najwyższym poziomie.\n'},
-    ]
+    const data = useStaticQuery(graphql`
+        query {
+          allContentfulTestimony(sort: {fields: index, order: DESC}) {
+            nodes {
+              author
+              description {
+                description
+              }
+            }
+          }
+        }
+
+      `)
+
+
 
     return (
 
         <div className="bg-kgk-gold/10">
-            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-16">
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8  py-8 md:py-16">
                 <h2 className="text-lg text-kgk-gold uppercase py-4">Referencje</h2>
                 <h3 className="text-3xl text-bold">Co o nas mówią Klienci</h3>
 
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-4 my-16">
-                    {data.slice(0, showTestimoniesCount).map((value, key) => <Testimon key={key} text={value.text} author={value.author}/>)}
-                    { showTestimoniesCount < data.length &&
+                    {
+                        // @ts-ignore
+                        data.allContentfulTestimony.nodes.slice(0, showTestimoniesCount).map((value, key) => <Testimon key={key} text={value.description.description} author={value.author}/>)
+                    }
+                    { showTestimoniesCount < data.allContentfulTestimony.nodes.length &&
                         <div className="w-full flex items-center justify-center flex-col cursor-pointer " onClick={() => setShowTestimoniesCount(showTestimoniesCount + 4)}>
                             <ArrowCircleRightIcon className="w-16 h-16 text-kgk-gold"></ArrowCircleRightIcon>
                             <span className="text-kgk-gold text-sm" >Pokaż kolejne</span>
@@ -61,7 +65,7 @@ const Testimon = (props: {text: string, author: string}) => {
                         {props.text}
                     </p>
                     <div className="flex justify-between pl-2">
-                        <h4 className="font-bold text-xl">{props.author}</h4>
+                        <h4 className="font-semibold text-xl">{props.author}</h4>
                     </div>
                 </div>
             </div>

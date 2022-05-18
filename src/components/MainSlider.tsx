@@ -3,6 +3,9 @@ import {StaticImage} from "gatsby-plugin-image";
 import {Link} from "gatsby";
 import {ArrowCircleDownIcon} from "@heroicons/react/outline";
 
+import {Link as ScrollLink} from "react-scroll";
+
+
 export default function MainSlider() {
 
     return (
@@ -47,7 +50,9 @@ export default function MainSlider() {
                 </main>
             </div>
             <div className="absolute bottom-5 text-white w-full flex items-center justify-center">
-                <ArrowCircleDownIcon className="w-8 h-8 animate-bounce"/>
+                <ScrollLink to="o-kancelarii" className="cursor-pointer" smooth={true} duration={500}>
+                    <ArrowCircleDownIcon className="w-8 h-8 animate-bounce"/>
+                </ScrollLink>
             </div>
         </div>
     )

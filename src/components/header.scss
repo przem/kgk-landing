@@ -1,5 +1,5 @@
 .navbar-link {
-  @apply border-transparent text-gray-800 hover:border-kgk-gold hover:text-kgk-gold inline-flex items-center px-1 pt-1 border-b-2 text-xs uppercase font-semibold;
+  @apply border-transparent text-gray-800 hover:border-kgk-gold hover:text-kgk-gold inline-flex items-center px-1 pt-1 border-b-2 text-xs uppercase font-semibold cursor-pointer;
 }
 
 .navbar-quick-action {

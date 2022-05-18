@@ -12,17 +12,14 @@ import Testimony from "../components/Testimony";
 import LastBlogEntries from "../components/LastBlogEntries";
 import ContactUs from "../components/ContactUs";
 
-const IndexPage = () => (
-  <Layout spa={true}>
+const BlogPage = () => (
+  <Layout spa={false}>
     <Seo title="Home" />
-    <MainSlider/>
-    <AboutUs/>
-    <Services/>
-    <Team/>
-    <Testimony/>
-    <LastBlogEntries/>
-    <ContactUs/>
+    <div className="p-36">
+        <h3>Blog</h3>
+        <p>Tutaj znajdą się ciekawe wpisy</p>
+    </div>
   </Layout>
 )
 
-export default IndexPage
+export default BlogPage

@@ -19,7 +19,7 @@ import "@fontsource/amiri/400.css"
 import Footer from "./Footer";
 
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children, spa }: { children: React.ReactNode, spa: boolean }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -32,7 +32,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header spa={spa} />
       <main>{children}</main>
       <Footer/>
     </>

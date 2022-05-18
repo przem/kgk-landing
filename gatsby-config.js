@@ -6,6 +6,13 @@ module.exports = {
     siteUrl: `https://gumula-kubicka.pl/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: "wgxmk5n10kx1",
+        accessToken: "Vy_WygmInfLempLKmw29DyTfnJF69F_tyfYR_FCKbKc"
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
