@@ -1,3 +1,9 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+
+
 module.exports = {
   siteMetadata: {
     title: `Katarzyna Gumula-Kubicka Kancelaria Adwokacka`,
@@ -9,8 +15,9 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: "wgxmk5n10kx1",
-        accessToken: "Vy_WygmInfLempLKmw29DyTfnJF69F_tyfYR_FCKbKc"
+        spaceId: process.env.CONTENTFUL_SPACE,
+        accessToken: process.env.CONTENTFUL_SECRET,
+        forceFullSync: true
       },
     },
     `gatsby-plugin-react-helmet`,
