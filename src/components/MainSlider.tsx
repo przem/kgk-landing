@@ -30,20 +30,18 @@ export default function MainSlider() {
                         </p>
                         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div className="rounded-md shadow">
-                                <Link
-                                    to="uslugi"
-                                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-kgk-gold hover:bg-kgk-gold md:py-4 md:text-lg md:px-10"
+                                <ScrollLink to='uslugi' smooth={true} duration={500} offset={-50}
+                                    className="w-full cursor-pointer flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-kgk-gold hover:bg-kgk-gold md:py-4 md:text-lg md:px-10"
                                 >
                                     Zobacz w czym jesteśmy świetni
-                                </Link>
+                                </ScrollLink>
                             </div>
                             <div className="mt-3 sm:mt-0 sm:ml-3">
-                                <Link
-                                    to="kontakt"
-                                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-kgk-gold-light hover:bg-kgk-gold-light md:py-4 md:text-lg md:px-10"
+                                <ScrollLink to='kontakt' smooth={true} duration={500} offset={-50}
+                                    className="w-full cursor-pointer flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-kgk-gold-light hover:bg-kgk-gold-light md:py-4 md:text-lg md:px-10"
                                 >
                                     Opowiedz nam o swoim wyzwaniu
-                                </Link>
+                                </ScrollLink>
                             </div>
                         </div>
                     </div>

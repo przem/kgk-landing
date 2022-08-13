@@ -1,25 +1,55 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import {graphql, Link} from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import MainSlider from "../components/MainSlider";
-import AboutUs from "../components/AboutUs";
-import Services from "../components/Services";
-import Team from "../components/Team";
-import Testimony from "../components/Testimony";
-import LastBlogEntries from "../components/LastBlogEntries";
-import ContactUs from "../components/ContactUs";
 
-const BlogPage = () => (
+
+
+// @ts-ignore
+const BlogListing = ({data}) => (
   <Layout spa={false}>
     <Seo title="Home" />
-    <div className="p-36">
-        <h3>Blog</h3>
-        <p>Tutaj znajdą się ciekawe wpisy</p>
+    <div id="zespol" className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8  py-8 md:py-16">
+      <h2 className="text-lg text-kgk-gold uppercase py-8">Blog</h2>
+      <div className="divide-y divide-solid">
+        {
+            // @ts-ignore
+            data.allContentfulPost.nodes.map((post, idx) => (<BlogEntry
+              key={idx}
+              title={post.title}
+              excerpt={post.excerpt?.excerpt}
+              slug={post.slug}
+            />))
+        }
+      </div>
+
     </div>
   </Layout>
 )
 
-export default BlogPage
+export default BlogListing
+
+const BlogEntry = (props: {title: string, excerpt: string, slug: string}) => (
+  <Link to={props.slug} className="block pt-8 prose md:prose-lg lg:prose-xl prose-slate">
+      <h2>{props.title}</h2>
+      <p className="">{props.excerpt}</p>
+      <span className="cursor-pointer block pb-8 text-kgk-gold">Czytaj dalej</span>
+  </Link>
+)
+
+
+
+export const pageQuery = graphql`
+    query {
+      allContentfulPost {
+        nodes {
+          excerpt {
+            excerpt
+          }
+          title
+          slug
+        }
+      }
+    }`
