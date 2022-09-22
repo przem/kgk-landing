@@ -12,7 +12,7 @@ import Testimony from "../components/Testimony";
 import LastBlogEntries from "../components/LastBlogEntries";
 import ContactUs from "../components/ContactUs";
 
-const BlogPage = () => (
+const Eprawnik = () => (
   <Layout  spa={false}>
     <Seo title="Home" />
     <div className="p-36">
@@ -22,4 +22,4 @@ const BlogPage = () => (
   </Layout>
 )
 
-export default BlogPage
+export default Eprawnik

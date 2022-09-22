@@ -24,7 +24,7 @@ export default function MainSlider() {
                             <span className="block xl:inline">Rozpocznij swoją drogę</span>{' '}
                             <span className="block text-kgk-gold-light xl:inline">z nami już dziś</span>
                         </h1>
-                        <p className="mt-3 text-base text-gray-200 sm:mt-5 sm:text-lg sm:max-w-2xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 font-serif">
+                        <p className="mt-3 text-base text-gray-200 sm:mt-5 sm:text-lg sm:max-w-2xl sm:mx-auto md:mt-5 md:text-2xl lg:mx-0 font-serif">
                             Kiedy masz okazję biznesową lub wyzwanie, nie zadowalaj się zwyczajnym podejściem.
                             Stwórz idealne rozwiązanie dzięki wskazówkom dynamicznego zespołu prawników, który ma odwagę robić rzeczy inaczej.
                         </p>
